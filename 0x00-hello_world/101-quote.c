@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 
 /**
  *main -prints the required info
@@ -9,8 +9,8 @@
 */
 int main(void)
 {
-	fprint(stderr, "and that piece of art is useful\"Dora Korpar, 2015-10-19\n");
-
-return (1);
-
+	char "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	write(2, 43);
+	return (1);
 }
+
