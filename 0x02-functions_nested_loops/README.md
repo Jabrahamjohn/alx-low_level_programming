@@ -1,0 +1,1 @@
+In this section we're learning C - functions, nesting, loops. 
