@@ -9,6 +9,6 @@ int main(void)
 {
 	int r = -12345;
 	int last = print_last_digit(r)
-	putchar('\n%d', last);
+	putchar(last);
 	return (0);
 }
