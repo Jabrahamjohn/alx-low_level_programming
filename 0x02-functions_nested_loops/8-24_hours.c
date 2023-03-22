@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include <stdio.h>
 
 /**
  * jack_bauer - prints the hours and minutes of Jack Bauer's longest day.

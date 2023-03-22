@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include <stdio.h>
 
 /**
  * times_table -  This program prints the 9 times multiplcation table.
