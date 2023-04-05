@@ -8,15 +8,15 @@
  *
  * Return: changed array with new value for n bytes
  */
-char *_memset(char *s, char b, unsinged int n)
+char *_memset(char *s, char b, unsigned int n)
 {
-	int = 0;
+	unsigned int a = 0;
 
-	for ( ; n > 0; i++)
+	while (a < n)
 	{
-		s[i] = b;
-
-		n--;
+		s[a] = b;
+		a++;
 	}
-	retutn(s);
+
+	return (s);
 }
