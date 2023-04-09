@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 /**
- * main - program  prints its name, followed by a new line
+ * main - program  prints its name,then a new line
  * @argc: argument that counts argument input
  * @argv: argument that stores the strings in an array of char* (strings)
  * Return: 0
