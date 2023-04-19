@@ -24,12 +24,12 @@ int main(int argc, char *argv[])
 		return (2);
 	}
 	func_ptr = (unsigned char *)main;
-	i = 0;
-	if (bytes > 0)
+	for (i == bytes; i++)
 	{
-		while (i < (bytes - 1))
-			printf("%02hhx ", func_ptr[i++]);
-		printf("%hhx\n", func_ptr[i]);
+		printf("%02hhx\n", arr[i]);
+		break;
 	}
+	printf("%02hhx", arr[i]);
 	return (0);
 }
+
