@@ -2,29 +2,29 @@
 
 /**
  * reverse_listint - Reverses a listint_t list.
- * @aj: A pointer to the address of
+ * @head: A pointer to the address of
  *        the head of the list_t list.
  *
  * Return: A pointer to the first node of the reversed list.
  */
-listint_t *reverse_listint(listint_t **aj)
+listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *aj, *behind;
+	listint_t *head, *behind;
 
-	if (aj == NULL || *aj == NULL)
+	if (head == NULL || *head == NULL)
 		return (NULL);
 
 	behind = NULL;
 
-	while ((*aj)->next != NULL)
+	while ((*head)->next != NULL)
 	{
-		aj = (*aj)->next;
-		(*aj)->next = behind;
+		head = (*head)->next;
+		(*head)->next = behind;
 		behind = *head;
-		*aj = aj;
+		*head = head;
 	}
 
 	(*head)->next = behind;
 
-	return (*aj);
+	return (*head);
 }

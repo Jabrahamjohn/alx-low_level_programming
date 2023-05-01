@@ -1,8 +1,3 @@
-/*
- * File: 8-sum_listint.c
- * Auth: Brennan D Baraban
- */
-
 #include "lists.h"
 
 /**

@@ -1,8 +1,3 @@
-/*
- * File: 7-get_nodeint.c
- * Auth: Brennan D Baraban
- */
-
 #include "lists.h"
 
 /**
