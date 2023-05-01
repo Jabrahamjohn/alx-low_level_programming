@@ -1,80 +1,85 @@
+/*
+ * File: 102-free_listint_safe.c
+ * Auth: Brennan D Baraban
+ */
+
 #include "lists.h"
 
 size_t looped_listint_count(listint_t *head);
 size_t free_listint_safe(listint_t **h);
 
 /**
- * looped_listint_count - Counts number of unique nodes
- *                      in the looped listint_t linked list.
- * @aj: pointer to the head of listint_t to be check.
+ * looped_listint_count - Counts the number of unique nodes
+ *                      in a looped listint_t linked list.
+ * @head: A pointer to the head of the listint_t to check.
  *
- * Return: If the list is'nt looped - 0.
- *         Otherwise - the number of unique nodes on the list.
+ * Return: If the list is not looped - 0.
+ *         Otherwise - the number of unique nodes in the list.
  */
-size_t looped_listint_count(listint_t *aj)
+size_t looped_listint_count(listint_t *head)
 {
-	listint_t *lion, *tiger;
+	listint_t *tortoise, *hare;
 	size_t nodes = 1;
 
-	if (aj == NULL || aj->next == NULL)
+	if (head == NULL || head->next == NULL)
 		return (0);
 
-	lion = aj->next;
-	tiger = (aj->next)->next;
+	tortoise = head->next;
+	hare = (head->next)->next;
 
-	while (tiger)
+	while (hare)
 	{
-		if (lion == tiger)
+		if (tortoise == hare)
 		{
-			lion = head;
-			while (lion != tiger)
+			tortoise = head;
+			while (tortoise != hare)
 			{
 				nodes++;
-				lion = lion->next;
-				tiger = tiger->next;
+				tortoise = tortoise->next;
+				hare = hare->next;
 			}
 
-			lion = lion->next;
-			while (lion != tiger)
+			tortoise = tortoise->next;
+			while (tortoise != hare)
 			{
 				nodes++;
-				lion = lion->next;
+				tortoise = tortoise->next;
 			}
 
 			return (nodes);
 		}
 
-		lion = lion->next;
-		tiger = (tiger->next)->next;
+		tortoise = tortoise->next;
+		hare = (hare->next)->next;
 	}
 
 	return (0);
 }
 
 /**
- * free_listint_safe - Frees listint_t list safely (ie.
- *                     frees lists containing loops)
- * @aj: pointer to the address of
+ * free_listint_safe - Frees a listint_t list safely (ie.
+ *                     can free lists containing loops)
+ * @h: A pointer to the address of
  *     the head of the listint_t list.
  *
  * Return: The size of the list that was freed.
  *
  * Description: The function sets the head to NULL.
  */
-size_t free_listint_safe(listint_t **aj)
+size_t free_listint_safe(listint_t **h)
 {
 	listint_t *tmp;
 	size_t nodes, index;
 
-	nodes = looped_listint_count(*aj);
+	nodes = looped_listint_count(*h);
 
 	if (nodes == 0)
 	{
-		for (; aj != NULL && *aj != NULL; nodes++)
+		for (; h != NULL && *h != NULL; nodes++)
 		{
-			tmp = (*aj)->next;
-			free(*aj);
-			*aj = tmp;
+			tmp = (*h)->next;
+			free(*h);
+			*h = tmp;
 		}
 	}
 
@@ -82,15 +87,15 @@ size_t free_listint_safe(listint_t **aj)
 	{
 		for (index = 0; index < nodes; index++)
 		{
-			tmp = (*aj)->next;
-			free(*aj);
-			*aj = tmp;
+			tmp = (*h)->next;
+			free(*h);
+			*h = tmp;
 		}
 
-		*aj = NULL;
+		*h = NULL;
 	}
 
-	aj = NULL;
+	h = NULL;
 
 	return (nodes);
 }
