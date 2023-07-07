@@ -9,7 +9,7 @@
 int powX(int b, int p)
 {
 	int prod = 1;
-	
+
 	while (p > 0)
 	{
 		prod *= b;
