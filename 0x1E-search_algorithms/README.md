@@ -1,5 +1,5 @@
 # 0X1E. C-Search Algorithms
-## c Algortim
+## c Algorithm
 
 <div class="panel panel-default" id="project-description">
   <div class="panel-body">
